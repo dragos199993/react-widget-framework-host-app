@@ -5,9 +5,11 @@ import './App.css';
 const App: React.FC = () => {
 
   useEffect(() => {
-    (window as any).ReactWidget.default.new({ selector: '.react-widget-container' }).render();
+    const WidgetInstance = (window as any).ReactWidget.default;
+    WidgetInstance.new({ selector: '.react-widget-container' }).render();
   },[]);
-
+  window.addEventListener('init', (res) => console.log("INITIALIZED", res));
+  window.addEventListener('clickWidget', (res) => console.log("CLICKED WIDGET", res));
   return (
     <div className="App">
       <header className="App-header">
