@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 const App: React.FC = () => {
+
+  useEffect(() => {
+    (window as any).ReactWidget.default.new({ selector: '.react-widget-container' }).render();
+  },[]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +24,7 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <div className="react-widget-container"></div>
     </div>
   );
 }
